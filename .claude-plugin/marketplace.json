@@ -1,0 +1,23 @@
+{
+    "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+    "name": "cc-triad-dev",
+    "description": "Three-agent orchestration pipeline for Claude Code: architect (Opus design) -> glm-coder (GLM-5.1 cloud implementation) -> codex-reviewer (Codex independent review), with optional kimi-vision (Kimi-K2.5 cloud multimodal).",
+    "owner": {
+        "name": "nianyi778",
+        "url": "https://github.com/nianyi778"
+    },
+    "plugins": [
+        {
+            "name": "cc-triad-dev",
+            "description": "Routes each development phase to its strongest model instead of relying on one generalist. Triggers automatically on feature requests, bug fixes, and UI mockups.",
+            "version": "0.1.0",
+            "source": "./",
+            "category": "development",
+            "author": {
+                "name": "nianyi778",
+                "url": "https://github.com/nianyi778"
+            },
+            "homepage": "https://github.com/nianyi778/cc-triad-dev"
+        }
+    ]
+}
