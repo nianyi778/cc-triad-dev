@@ -10,7 +10,7 @@
         {
             "name": "cc-triad-dev",
             "description": "Routes each development phase to its strongest model instead of relying on one generalist. Triggers automatically on feature requests, bug fixes, and UI mockups.",
-            "version": "0.1.0",
+            "version": "0.1.1",
             "source": "./",
             "category": "development",
             "author": {

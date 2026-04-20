@@ -1,6 +1,6 @@
 ---
 name: triad-dev
-description: Use PROACTIVELY for any non-trivial feature implementation, bug fix, or code change. Orchestrates a three-agent pipeline (architect → glm-coder → codex-reviewer, with optional kimi-vision for image inputs) to produce higher-quality code than any single model. Triggers on "实现"/"加功能"/"做一个"/"implement"/"build"/"add feature"/"修 bug"/"fix bug" when the task is larger than a trivial one-liner.
+description: Use PROACTIVELY for any non-trivial feature implementation, bug fix, or code change. Orchestrates a three-agent pipeline (architect → glm-coder → codex-reviewer, with optional kimi-vision for image inputs) to produce higher-quality code than any single model. FORCE-TRIGGERS on brand keywords "scj", "SCJ", "三叉戟", "trident", "走三叉戟", "用 scj", "用三叉戟", "走流水线" — these ALWAYS enable the pipeline regardless of task size. Also auto-triggers on "实现"/"加功能"/"做一个"/"implement"/"build"/"add feature"/"修 bug"/"fix bug" when the task is larger than a trivial one-liner.
 ---
 
 # 三叉戟开发流水线
@@ -9,13 +9,26 @@ Conductor = 主会话 CC。你不亲自写代码，你只负责**编排 + 裁决
 
 ## 判断是否启用
 
+### 🎯 最高优先级：品牌词强制触发（不看任务大小，一律启用）
+
+用户消息里出现以下**任一**关键词，**必须**启用流水线，跳过所有"轻量判断"：
+
+- `scj` / `SCJ`（三叉戟拼音首字母，主品牌词）
+- `三叉戟`
+- `trident`
+- `走三叉戟` / `用三叉戟` / `用 scj` / `走 scj`
+- `走流水线` / `用流水线`
+
+> 品牌词 = 用户显式 opt-in 的抓手。看到就走，不允许"这任务太小跳过"——用户既然打了品牌词就是要看到流水线跑。
+
+### 自动触发（无品牌词时）
+
 启用条件（任一满足）：
 - 用户请求实现新功能、新组件、新接口
 - 修改涉及 2+ 文件 或 50+ 行
 - 用户提供了设计稿/截图/UI mockup
-- 用户明确说"用三叉戟"/"用流水线"
 
-**跳过条件**（降级为直接写）：
+**跳过条件**（降级为直接写，仅在**无品牌词**时生效）：
 - 纯粹的 typo / rename / 单行改动
 - 用户明确说"你自己直接改"
 - 紧急 hotfix（明确时间压力）
