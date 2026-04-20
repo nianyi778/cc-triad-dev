@@ -1,0 +1,23 @@
+{
+    "name": "cc-triad-dev",
+    "version": "0.1.0",
+    "description": "Claude Code three-agent orchestration pipeline: architect (Opus design) → glm-coder (GLM-5.1 cloud implementation) → codex-reviewer (Codex independent review), with optional kimi-vision (Kimi-K2.5 cloud multimodal) for image inputs. Routes each phase to its strongest model instead of relying on one generalist. Triggers automatically on feature requests, bug fixes, and UI mockups.",
+    "author": {
+        "name": "nianyi778",
+        "url": "https://github.com/nianyi778"
+    },
+    "repository": "https://github.com/nianyi778/cc-triad-dev",
+    "license": "MIT",
+    "keywords": [
+        "claude-code",
+        "agent-orchestration",
+        "multi-model",
+        "ollama",
+        "ollama-cloud",
+        "codex",
+        "glm-5.1",
+        "kimi-k2.5",
+        "sub-agents",
+        "skill"
+    ]
+}
